@@ -1,0 +1,38 @@
+ISort: THEORY
+      BEGIN
+
+insert(x:nat,l:list[nat]) : RECURSIVE list[nat] =
+			  CASES l OF
+			  	null: cons(x,null),
+				cons(h,tl): IF x <= h
+					    THEN cons(x,l)
+					    	 ELSE cons(h,insert(x,tl))
+						 ENDIF
+						 ENDCASES
+						 MEASURE length(l)
+
+cinsert (x:nat, lc:[list[nat],nat]): RECURSIVE [list[nat],nat] =
+	IF null?(lc`1) THEN (cons(x,lc`1),lc`2)
+	ELSIF x <= car(lc`1) THEN (cons(x,lc`1), lc`2 + 1) 
+	ELSE LET lcaux = cinsert(x,(cdr(lc`1),lc`2 + 1)) IN
+	(cons(car(lc`1), lcaux`1), lcaux`2)
+ENDIF
+MEASURE length(lc`1)
+
+count_cinsert_ws: LEMA
+		  FORALL (x:nat)(l:list[nat]): every_nth(> x)(l) AND cinsert(x, (l,0))`2 = length(l)
+
+insertion_sort(l:list[nat]) : RECURSIVE list[nat] =
+		   CASES l OF
+		   null: l,
+		   cons(h,tl): insert(h, insertion_sort(tl))
+		   ENDCASES
+		   MEASURE length(l)
+
+cinsertion_sort(l: list[nat]): RECURSIVE [list[nat],nat] = 
+IF null?(l) THEN (null,0)
+   ELSE cinsert(car(l), cinsertion_sort(cdr(l)))
+ENDIF
+MEASURE length(l)
+
+END ISort
