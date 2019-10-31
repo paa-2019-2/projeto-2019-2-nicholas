@@ -1,0 +1,96 @@
+(ISort
+ (insert_TCC1 0
+  (insert_TCC1-1 nil 3781448010 ("" (termination-tcc) nil nil) nil
+   nil))
+ (cinsert_TCC1 0
+  (cinsert_TCC1-1 nil 3781448010 ("" (subtype-tcc) nil nil) nil nil))
+ (cinsert_TCC2 0
+  (cinsert_TCC2-1 nil 3781448010 ("" (termination-tcc) nil nil) nil
+   nil))
+ (insertion_sort_TCC1 0
+  (insertion_sort_TCC1-1 nil 3781448010 ("" (termination-tcc) nil nil)
+   nil nil))
+ (cinsertion_sort_TCC1 0
+  (cinsertion_sort_TCC1-1 nil 3781448010 ("" (subtype-tcc) nil nil) nil
+   nil))
+ (cinsertion_sort_TCC2 0
+  (cinsertion_sort_TCC2-1 nil 3781448010 ("" (termination-tcc) nil nil)
+   nil nil))
+ (insertion_sort_is_quadratic_TCC1 0
+  (insertion_sort_is_quadratic_TCC1-1 nil 3781448010
+   ("" (subtype-tcc) nil nil) nil nil))
+ (insertion_sort_is_quadratic 0
+  (insertion_sort_is_quadratic-1 nil 3781448012
+   ("" (expand "member")
+    (("" (expand "Omicron")
+      (("" (skeep)
+        (("" (lemma "count_cinsertion_sort_ws_general")
+          (("" (inst -1 "l")
+            (("" (lemma "le_cut")
+              ((""
+                (inst -1 "cinsertion_sort(l)`2"
+                 "(length(l) * (length(l) - 1)) / 2"
+                 "2 * length(l) ^ 2")
+                (("" (split)
+                  (("1" (grind) nil nil) ("2" (propax) nil nil)
+                   ("3" (hide -1 2) (("3" (grind) nil nil)) nil))
+                  nil))
+                nil))
+              nil))
+            nil))
+          nil))
+        nil))
+      nil))
+    nil)
+   ((nat_exp application-judgement "nat" exponentiation nil)
+    (Omicron const-decl "setof[[nat -> nonneg_real]]" complexity nil)
+    (count_cinsertion_sort_ws_general formula-decl nil ISort nil)
+    (le_cut formula-decl nil extra_real_props nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (expt def-decl "real" exponentiation nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nat_expt application-judgement "nat" exponentiation nil)
+    (nzrat_div_nzrat_is_nzrat application-judgement "nzrat" rationals
+     nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (^ const-decl "real" exponentiation nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (- const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (length def-decl "nat" list_props nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (/ const-decl "[numfield, nznum -> numfield]" number_fields nil)
+    (nznum nonempty-type-eq-decl nil number_fields nil)
+    (/= const-decl "boolean" notequal nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (cinsertion_sort def-decl "[list[nat], nat]" ISort nil)
+    (rat_div_nzrat_is_rat application-judgement "rat" rationals nil)
+    (nnint_times_nnint_is_nnint application-judgement "nonneg_int"
+     integers nil)
+    (even_times_int_is_even application-judgement "even_int" integers
+     nil)
+    (mult_divides1 application-judgement "(divides(n))" divides nil)
+    (mult_divides2 application-judgement "(divides(m))" divides nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (>= const-decl "bool" reals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (every adt-def-decl "boolean" list_adt nil)
+    (PRED type-eq-decl nil defined_types nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (list type-decl nil list_adt nil)
+    (number nonempty-type-decl nil numbers nil)
+    (member const-decl "bool" sets nil))
+   shostak)))
+
