@@ -7,7 +7,8 @@
 bubblesort : THEORY
 BEGIN
 
-IMPORTING   sorting 
+IMPORTING   sorting
+IMPORTING   complexity
 
 l,l1,l2 : VAR list[nat]
 i,j,k,n : VAR nat
@@ -37,6 +38,13 @@ bubblesort(l) : list[nat] =
 IF null?(l) THEN l
 ELSE bubblesort_aux(l, l`length - 1 )
 ENDIF
+
+cbubbling(lc1:[list[nat], nat], ( n : below[ lc1`1`length])) : RECURSIVE [list[nat], nat] =
+IF n = 0 THEN (lc1`1, lc1`2)
+ELSIF car(lc1`1) > car(cdr(lc1`1)) THEN cons(car(cdr(lc1`1)), cbubbling((cons(car(lc1`1),cdr(cdr(lc1`1))), lc1`2 + 1), n - 1)`1)
+ELSE cons(car(lc1`1), cbubbling((cdr(lc1`1), lc1`2 + 1), n - 1)`1)
+ENDIF
+MEASURE n 
 
 
 END bubblesort

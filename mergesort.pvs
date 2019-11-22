@@ -11,6 +11,7 @@ BEGIN
 
 IMPORTING sorting
 IMPORTING complexity
+IMPORTING lnexp_fnd@ln_exp
 
 
 l,l1,l2 : VAR list[nat]
@@ -55,10 +56,24 @@ cmerge_sort(l: list[nat]) : RECURSIVE [list[nat], nat] =
  ENDIF 
 MEASURE length(l)
 
+count_cmerge_sort_ws_general: LEMMA
+		  FORALL (l:list[nat]): cmerge_sort(l)`2 <= (length(l) * (length(l) - 1))/2
+
+count_cmerge_sort_ws_general_nlogn: LEMMA
+		  FORALL (l:list[nat]): cmerge_sort(l)`2 <= (length(l) * (ln(length(l)) + 1))
+
+nlog_n_less_than_3nlogn: LEMMA
+		  FORALL (x: nat): (x * (ln(x) + 1)) <= 3 * (x * ln(x))
+
 merge_sort_is_quadratic: LEMMA
  FORALL (l:list[nat]):
  member(LAMBDA(n:nat): cmerge_sort(l)`2,
  Omicron(LAMBDA(n:nat):length(l)^2 ))
 
+merge_sort_is_nlogn: LEMMA % mostrar que merge sort é n log n
+ FORALL (l:list[nat]):
+ member(LAMBDA(n:nat): cmerge_sort(l)`2,
+ Omicron(LAMBDA(n:nat):length(l) * ln(length(l))))
+ 
 end mergesort
 
