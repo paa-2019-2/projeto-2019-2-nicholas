@@ -26,6 +26,26 @@
  (count_cmerge_sort_ws_general_nlogn_TCC1 0
   (count_cmerge_sort_ws_general_nlogn_TCC1-1 nil 3783371396
    ("" (subtype-tcc) nil nil) nil nil))
+ (count_cmerge_sort_ws_general_nlogn 0
+  (count_cmerge_sort_ws_general_nlogn-1 nil 3784282477
+   ("" (induct "l")
+    (("1" (expand "cmerge_sort")
+      (("1" (lift-if)
+        (("1" (prop) (("1" (grind) nil nil) ("2" (grind) nil nil))
+          nil))
+        nil))
+      nil)
+     ("2" (skeep)
+      (("2" (expand "cmerge_sort" 1)
+        (("2" (lift-if)
+          (("2" (prop) (("1" (grind) nil nil) ("2" (postpone) nil nil))
+            nil))
+          nil))
+        nil))
+      nil)
+     ("3" (postpone) nil nil))
+    nil)
+   nil shostak))
  (nlog_n_less_than_3nlogn_TCC1 0
   (nlog_n_less_than_3nlogn_TCC1-1 nil 3783373673
    ("" (subtype-tcc) nil nil) nil nil))
@@ -62,7 +82,7 @@
     (list type-decl nil list_adt nil)
     (boolean nonempty-type-decl nil booleans nil)
     (bool nonempty-type-eq-decl nil booleans nil)
-    (PRED type-eq-decl nil defined_types nil) nil
+    (PRED type-eq-decl nil defined_types nil)
     (AND const-decl "[bool, bool -> bool]" booleans nil)
     (number_field_pred const-decl "[number -> boolean]" number_fields
      nil)
